@@ -1,0 +1,28 @@
+extends template
+
+block title
+  title Сайт про сериалы
+
+block footer 
+  +footer-long-page 
+
+block content
+    .block-block-2
+      .block-block
+        .block-list
+          .img-1
+            a(href="Page_03.html") 
+              img(src='https://www.youloveit.ru/uploads/posts/2017-06/1496752530_youloveit_ru_novaya_kartinka_ledi_bag.jpg')
+            img(src='https://avatars.dzeninfra.ru/get-zen_doc/3342202/pub_5fc8fb44eb95a53734319e3f_5fcbbca7702d845a13427084/scale_1200')
+            img(src='https://www.slashfilm.com/img/gallery/everything-we-know-about-euphoria-season-2-so-far/l-intro-1631737409.jpg')
+            img(src='https://avatarko.ru/img/kartinka/22/muzhchina_serial_21914.jpg')
+            img(src='https://plaqat.ru/images/34077.jpg')
+    .my-block-1
+
+    // Пришлось убрать переносы текста в блоках (которые были сделаны для большей читаемости), т.к. миксин их не воспринимает :(
+
+    +block-content-2('https://phonoteka.org/uploads/posts/2021-05/1622047461_10-phonoteka_org-p-futurama-art-krasivo-11.jpg', 'Футурама', 'Курьер-лузер переносится в XXXI век и учится жить в мире космолетов и роботов. Сатира от авторов «Симпсонов»')
+    
+    +block-content-2('https://peopletalk.ru/wp-content/uploads/2022/04/scale_1200-6.jpeg', 'Постучись в мою дверь', 'Эда живёт вместе со своей тётей и работает в семейном цветочном магазине. Она мечтает уехать на стажировку в Италию, но лишается стипендии, которую местное архитектурное бюро Art Life выделяет для талантливых студентов. Обидевшись, девушка решает отомстить его владельцу, молодому и талантливому архитектору Серкану Болату. Но их знакомство оборачивается неожиданным договором — Эда получит полностью оплаченную поездку в Италию, если 2 месяца будет притворяться девушкой Серкана, чтобы он смог вернуть свою бывшую.')
+    
+    +block-content-2('https://multoigri.ru/images/gallery/icon-view/16432.jpg', 'Винкс', 'В волшебном мире Магикс есть школа Алфея, где юных фей обучают магическим навыкам. Пять учениц этой школы не только ходят в кафе после уроков и встречаются с мальчиками, но и защищают свою планету от зла.')

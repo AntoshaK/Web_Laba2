@@ -1,0 +1,185 @@
+extends template
+
+mixin my-option
+  select
+    option(value='0') --- Нет ---
+    option(value='1') Название
+    option(value='2') Год выхода
+    option(value='3') Рейтинг в кинопоиске
+    option(value='4') Жанр
+    option(value='5') Количество сезонов
+
+block title
+  title Список мультсериалов 
+  link(rel="stylesheet", href="css/main_2.css")
+
+mixin table-create(a, b, c, d, e)
+  tr
+    td=a
+    td=b
+    td=c
+    td=d
+    td=e
+
+block footer 
+  +footer-long-page 
+  //script(src="http://d3js.org/d3.v7.js")
+  script(src="https://d3js.org/d3.v5.min.js")
+  script(src='js/js-3.js')
+  script(src='js/js-3-diagramm.js')
+  
+
+block content
+    details(open)
+      summary.text-002 Блок настроек показа
+      .main-block
+        .block-01
+          .table 
+            .title-1-1
+              p График:
+            .left-edge-1
+              p.title-1 Значение по оси OХ: 
+              div
+                input#inp2-1(type='radio', name='ox', value='жанр', checked)
+                p Жанр
+              div
+                input#inp2-2(type='radio', name='ox', value='жанр')
+                p Год выхода                
+            .right-edge-1
+              p.title-1 Результат: 
+              div
+                input#in-1(type='radio', name='result', value='колво')       
+                p Макс. количество частей           
+                span#or.tooltip 
+              div   
+                input#in-2(type='radio', name='result', value='макс')    
+                p Максимальный рейтинг             
+                span#gr.tooltip 
+              div
+                input#in-3(type='radio', name='result', value='мин', checked)
+                p Минимальный рейтинг        
+                span#bl.tooltip     
+            button#butt-graf Построить 
+        .block-02
+          .table.class_01 
+            .title-1-1
+              p Фильтр:
+            .left-edge-1
+              p Название:
+              p Жанр:
+              p Количество сезонов:
+              p Год (от):	
+              p Год (до):	
+              p Рейтинг (от):	
+              p Рейтинг (до):
+            .right-edge-1
+              p
+                input#name(type='text', placeholder='Введите название')
+              p
+                input#name(type='text', placeholder='Введите жанр')
+              p
+                input#name(type='text', placeholder='Введите кол-во сезонов')
+              p
+                input#name(type='text', placeholder='Введите год')
+              p
+                input#name(type='text', placeholder='Введите год')
+              p
+                input#name(type='text', placeholder='Введите рейтинг')
+              p
+                input#name(type='text', placeholder='Введите рейтинг')
+            button#butt-filter Найти 
+        .block-03
+          .table-2
+            .title-1-2
+              p Сортировка:
+            .left-edge-2
+              p Первый уровень
+              p Второй уровень 
+              p Третий уровень
+            .center-edge-2#sort-opt 
+              p.l1
+                +my-option
+              p.l2
+                +my-option
+              p.l3
+                +my-option
+            .right-edge-2
+              p.no-ind по убыванию?
+                input(type='checkbox', name='ack1', value='ack1')
+              p.no-ind по убыванию?
+                input(type='checkbox', name='ack1', value='ack1')
+              p.no-ind по убыванию?
+                input(type='checkbox', name='ack1', value='ack1')
+            button#butt-sort Построить 
+      div.block-graf
+        p График:
+        div#graf-container
+          div.curr-graff
+      
+    p.text-001 Таблица
+
+    //.f50px-spase
+      p
+
+    #bad-news 
+      p Записей по данному запросу не найдено :(
+
+    #table-container
+      table#my-table
+        tr.title
+          td Название
+          td Год выхода
+          td Рейтинг на кинопоиске
+          td Жанр
+          td Количество частей
+
+        +table-create('Постучись в мою дверь', '2022', '8.2', 'Мелодрама', '2')
+        +table-create('Клуб Винкс', '2011', '3.9', 'Мультсериал', '8')
+        +table-create('Во все тяжкие', '2008', '8.9', 'Драма', '5')
+        +table-create('Великолепный век', '2011', '8.2', 'Исторический', '4')
+        +table-create('Время приключений', '2007', '8.3', 'Мультсериал', '10')
+        +table-create('Фарго', '2014', '8.4', 'Триллер', '5')
+        +table-create('Футурама', '1999', '8.2', 'Мультсериал', '8')
+        +table-create('Твин Пикс', '1990', '8.5', 'Фантастика', '3')
+        +table-create('Тьма', '2017', '8.1', 'Фантастика', '3')
+        +table-create('Клиника', '2001', '8.7', 'Комедия', '9')
+        +table-create('Настоящий детектив', '2014', '8.7', 'Детектив', '4')
+        +table-create('Гранд отель', '2011', '8.1', 'Детектив', '3')
+        +table-create('Очень странные дела', '2016', '8.4', 'Ужасы', '5')
+        +table-create('Ведьмак', '2019', '7.3', 'Фентези', '4')
+        +table-create('Как я встретил вашу маму', '2005', '8.6', 'Комедия', '9')
+        +table-create('Ход королевы', '2020', '8.3', 'Драма', '1')
+        +table-create('Игра в кальмара', '2021', '7.5', 'Драма', '2')
+        +table-create('Твин Пикс', '1990', '8.5', 'Фантастика', '3')
+        +table-create('Шерлок', '2010', '8.9', 'Детектив', '4')
+        +table-create('Восьмидесятые', '2018', '7.8', 'Комедия', '6')
+        +table-create('Счастливы вместе', '2006', '4.7', 'Комедия', '6')
+        +table-create('Однажды в сказке', '2011', '7.9', 'Мелодрама', '7')
+        +table-create('Остаться в живых', '2004', '8.1', 'Приключения', '6')
+        +table-create('Бесстыжие', '2011', '8.7', 'Драма', '11')
+        +table-create('Клиника', '2001', '8.7', 'Драма', '9')
+        +table-create('Американская история ужасов', '2011', '7.9', 'Ужасы', '13')
+        +table-create('Песочный человек', '2020', '7.1', 'Ужасы', '1')
+        +table-create('Последний из Магикян', '2013', '6.9', 'Комедия', '5')
+        +table-create('Черное зеркало', '2011', '8.5', 'Триллер', '5')
+        +table-create('Доктор Хаус', '2004', '8.8', 'Драма', '8')
+        +table-create('Кости', '2005', '8.0', 'Драма', '12')
+        +table-create('Чернобыль', '2018', '8.8', 'Исторический', '1')
+        +table-create('Властелин колец: Кольца власти', '2022', '6.1', 'Боевик', '2')
+        +table-create('Великолепные Медичи', '2018', '8.2', 'Исторический', '2')
+        +table-create('Острые козырьки', '2013', '8.4', 'Драма', '6')
+        +table-create('Корона', '2016', '8.3', 'Драма', '6')
+        +table-create('Ходячие мертвецы', '2010', '8.0', 'Ужасы', '11')
+        +table-create('Кухня', '2012', '8.2', 'Комедия', '6')
+        +table-create('Друзья', '1994', '9.2', 'Мелодрама', '10')
+        +table-create('Игра престолов', '2011', '9.0', 'Фентези', '8')
+        +table-create('Семнадцать мгновений весны', '1973', '8.9', 'Драма', '1')
+        +table-create('Звёздный путь', '1966', '8.3', 'Фантастика', '3')
+        +table-create('Приключения Шерлока Холмса', '1984', '8.1', 'Детектив', '2')
+        +table-create('В поисках капитана Гранта', '1985', '8.2', 'Приключения', '1')
+        +table-create('Санта-Барбара', '1984', '4.3', 'Мелодрама', '1')
+        +table-create('Ванпанчмен', '2015', '8.4', 'Мультфильм', '2')
+        +table-create('Вокруг света за 80 дней', '2021', '7.8', 'Приключения', '2')
+        +table-create('Конец ***го мира', '2019', '7.7', 'Приключения', '2')
+        +table-create('Монстр: история джеффри дамера', '2022', '7.4', 'Триллер', '1')
+        +table-create('Дивный новый мир', '2019', '7.3', 'Триллер', '1')
